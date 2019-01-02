@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { MarketModule } from './modules/market/market.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SharedModule } from './modules/shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    MarketModule
   ],
   providers: [],
   bootstrap: [AppComponent]
