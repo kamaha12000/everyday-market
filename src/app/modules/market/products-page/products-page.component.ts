@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../../model';
+import { CategoriesService } from '../../core/services/categories.service';
 
 @Component({
   selector: 'app-products-page',
@@ -7,13 +8,14 @@ import { Category } from '../../../model';
   styleUrls: ['./products-page.component.css']
 })
 export class ProductsPageComponent implements OnInit {
-  categories: Category[] = [
-    { name: 'Books' }, { name: 'Appliances' }, { name: 'Food' }
-  ];
+  categories: Category[];
   selectedCategory: Category;
-  constructor() { }
+
+  constructor(private readonly categoriesServices: CategoriesService) { }
 
   ngOnInit() {
+    this.categoriesServices.loadCategories()
+      .then(r => this.categories = r);
   }
 
   onCategoryChanged(category: Category) {
