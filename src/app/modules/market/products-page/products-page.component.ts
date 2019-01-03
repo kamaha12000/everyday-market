@@ -12,17 +12,26 @@ export class ProductsPageComponent implements OnInit {
   categories: Category[];
   selectedCategory: Category;
   products: Product[];
+  isBusy = false;
 
   constructor(private readonly categoriesServices: CategoriesService, private readonly productsService: ProductsService) { }
 
-  ngOnInit() {
-    this.categoriesServices.loadCategories()
-      .then(r => this.categories = r);
+  async ngOnInit() {
+    this.isBusy = true;
+    try {
+      this.categories = await this.categoriesServices.loadCategories();
+    } finally {
+      this.isBusy = false;
+    } 
   }
 
-  onCategoryChanged(category: Category) {
+  async onCategoryChanged(category: Category) {
     this.selectedCategory = category;
-    this.productsService.loadProducts(category.name)
-      .then(r => this.products = r);
+    this.isBusy = true;
+    try {
+      this.products = await this.productsService.loadProducts(category.name);
+    } finally {
+      this.isBusy = false;
+    }
   }
 }
