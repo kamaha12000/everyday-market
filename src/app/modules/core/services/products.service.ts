@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CoreModule } from '../core.module';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../../../model';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment.prod';
 
 @Injectable({
   providedIn: CoreModule
