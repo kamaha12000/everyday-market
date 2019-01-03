@@ -10,9 +10,11 @@ import { Category } from '../../../model';
 export class CategoryMenuComponent {
   @Input() categories: Category[];
   @Output() categoryChanged = new EventEmitter<Category>();
+  selectedCategoryName: string;
 
   onCategorySelected(catname: string) {
     const cat = this.categories.find(c => c.name == catname);
+    this.selectedCategoryName = cat.name;
     this.categoryChanged.emit(cat);
   }
 }

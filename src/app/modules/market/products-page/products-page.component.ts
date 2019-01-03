@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../../../model';
+import { Category, Product } from '../../../model';
 import { CategoriesService } from '../../core/services/categories.service';
+import { ProductsService } from '../../core/services/products.service';
 
 @Component({
   selector: 'app-products-page',
@@ -10,8 +11,9 @@ import { CategoriesService } from '../../core/services/categories.service';
 export class ProductsPageComponent implements OnInit {
   categories: Category[];
   selectedCategory: Category;
+  products: Product[];
 
-  constructor(private readonly categoriesServices: CategoriesService) { }
+  constructor(private readonly categoriesServices: CategoriesService, private readonly productsService: ProductsService) { }
 
   ngOnInit() {
     this.categoriesServices.loadCategories()
@@ -20,6 +22,7 @@ export class ProductsPageComponent implements OnInit {
 
   onCategoryChanged(category: Category) {
     this.selectedCategory = category;
-    alert(category.name);
+    this.productsService.loadProducts(category.name)
+      .then(r => this.products = r);
   }
 }

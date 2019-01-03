@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CategoryMenuItemComponent {
   @Input() categoryName: string;
+  @Input() checked = false;
   @Output() selected = new EventEmitter<string>();
 
   onSelected() {

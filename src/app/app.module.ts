@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { MarketModule } from './modules/market/market.module';
+import { CoreModule } from './modules/core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { MarketModule } from './modules/market/market.module';
   imports: [
     BrowserModule,
     SharedModule,
-    MarketModule
+    MarketModule,
+    CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
