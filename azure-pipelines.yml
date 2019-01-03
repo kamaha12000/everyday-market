@@ -18,5 +18,6 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --prod
+    ng build --prod 
+    pwd
   displayName: 'npm install and build'
