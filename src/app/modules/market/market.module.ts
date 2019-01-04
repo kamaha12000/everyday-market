@@ -9,6 +9,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductViewPageComponent } from './product-view-page/product-view-page.component';
 import { ProductEditPageComponent } from './product-edit-page/product-edit-page.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsPageComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     ProductCardComponent,
     ProductListComponent,
     ProductViewPageComponent,
-    ProductEditPageComponent
+    ProductEditPageComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

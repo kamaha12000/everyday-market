@@ -16,4 +16,10 @@ export class ProductsService {
       .toPromise()
       .then(result => result as Product[]);
   }
+
+  loadProduct(id: number) {
+    return this.http.get(`${this.apiUri}products/${id}`)
+      .toPromise()
+      .then(r => r as Product);
+  }
 }
