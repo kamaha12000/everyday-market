@@ -1,0 +1,21 @@
+<form>
+  <div>
+    <label for="title">Title</label>
+    <input id="title" name="title" [(ngModel)]="product.title" />
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" [(ngModel)]="product.description"></textarea>
+  </div>
+  <div>
+    <label for="category">Category</label>
+    <select id="category" name="category"  [(ngModel)]="product.category">
+      <option value="">Select category..</option>
+      <option *ngFor="let c of categories" [value]="c.name">{{ c.name }}</option>
+    </select>
+  </div>
+  <div class="actions-panel">
+    <button (click)="onSubmit(true)">Save</button>
+    <button (click)="onSubmit(false)">Cancel</button>
+  </div>
+</form>
