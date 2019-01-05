@@ -4,4 +4,5 @@ export interface Product {
   title: string;
   description: string;
   media: ProductMedia[];
+  productId: string;
 }
